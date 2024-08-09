@@ -1,0 +1,91 @@
+<section class="bg-white dark:bg-gray-900">
+    <div class="max-w-2xl px-4 py-8 mx-auto lg:py-16">
+        <h2 class="mb-4 text-xl font-bold text-gray-900 dark:text-black">Materia Prima</h2>
+        <form (ngSubmit)="guardarMateriaPrima()" #form="ngForm">
+            <div class="grid gap-4 mb-4 sm:grid-cols-2 sm:gap-6 sm:mb-5">
+                <div class="w-full">
+                    <label for="nombre" class="block mb-2 text-sm font-medium text-gray-900 dark:text-black">Nombre:</label>
+                    <input type="text" id="nombre" class="bg-green-50 border border-green-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-green-600 block w-full p-2.5 dark:bg-white dark:border-green-600 dark:placeholder-gray-400 dark:text-black dark:focus:ring-primary-500 dark:focus:border-green-500"
+                        placeholder="Nombre de la materia prima" [(ngModel)]="selectedMateriaPrima.nombre" name="nombre" required #nombre="ngModel">
+                    <div *ngIf="nombre.invalid && nombre.touched" class="text-danger">
+                        Nombre es requerido.
+                    </div>
+                </div>
+                <div class="w-full">
+                    <label for="tipoMedida" class="block mb-2 text-sm font-medium text-gray-900 dark:text-black">Tipo de Medida:</label>
+                    <input type="text" id="tipoMedida" class="bg-green-50 border border-green-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-green-600 block w-full p-2.5 dark:bg-white dark:border-green-600 dark:placeholder-gray-400 dark:text-black dark:focus:ring-primary-500 dark:focus:border-green-500"
+                        placeholder="Tipo de medida" [(ngModel)]="selectedMateriaPrima.tipoMedida" name="tipoMedida" required #tipoMedida="ngModel">
+                    <div *ngIf="tipoMedida.invalid && tipoMedida.touched" class="text-danger">
+                        Tipo de Medida es requerido.
+                    </div>
+                </div>
+                <div class="w-full">
+                    <label for="cantidadMinima" class="block mb-2 text-sm font-medium text-gray-900 dark:text-black">Cantidad Mínima:</label>
+                    <input type="number" id="cantidadMinima" class="bg-green-50 border border-green-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-green-600 block w-full p-2.5 dark:bg-white dark:border-green-600 dark:placeholder-gray-400 dark:text-black dark:focus:ring-primary-500 dark:focus:border-green-500"
+                        placeholder="Cantidad mínima" [(ngModel)]="selectedMateriaPrima.cantidadMinima" name="cantidadMinima" required #cantidadMinima="ngModel">
+                    <div *ngIf="cantidadMinima.invalid && cantidadMinima.touched" class="text-danger">
+                        Cantidad Mínima es requerida.
+                    </div>
+                </div>
+                <div class="w-full">
+                    <label for="proveedor" class="block mb-2 text-sm font-medium text-gray-900 dark:text-black">Proveedor:</label>
+                    <select id="proveedor" class="bg-green-50 border border-green-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-green-600 block w-full p-2.5 dark:bg-white dark:border-green-600 dark:placeholder-gray-400 dark:text-black dark:focus:ring-primary-500 dark:focus:border-green-500"
+                        [(ngModel)]="selectedProveedorId" name="proveedor" required>
+                        <option *ngFor="let proveedor of proveedores" [value]="proveedor.idProveedor">
+                            {{ proveedor.nombre }} {{ proveedor.apellidoPaterno }} {{ proveedor.apellidoMaterno }}
+                        </option>
+                    </select>
+                    <div *ngIf="selectedProveedorId == null" class="text-danger">
+                        Proveedor es requerido.
+                    </div>
+                </div>
+            </div>
+            <div class="flex items-center space-x-4">
+                <button type="submit" class="text-white bg-primary-700 hover:bg-primary-800 focus:ring-4 focus:outline-none focus:ring-primary-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-green-600 dark:hover:bg-green-700 dark:focus:ring-primary-800">
+                    {{ selectedMateriaPrima.idMateriaPrima ? 'Actualizar' : 'Agregar' }}
+                </button>
+                <button type="button" class="text-white inline-flex items-center hover:text-white border border-red-600 hover:bg-red-600 focus:ring-4 focus:outline-none focus:ring-red-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-red-600 dark:hover:text-white dark:hover:bg-red-900 dark:focus:ring-red-900"
+                    (click)="limpiar()">
+                    Limpiar
+                </button>
+            </div>
+        </form>
+    </div>
+</section>
+<section class="bg-white-50 dark:bg-white p-3 sm:p-5">
+    <div class="mx-auto max-w-screen-xl px-4 lg:px-12">
+        <div class="bg-white dark:bg-gray-800 relative shadow-md sm:rounded-lg overflow-hidden">
+            <div class="overflow-x-auto">
+                <table class="w-full text-sm text-left text-gray-500 dark:text-gray-400">
+                    <thead class="text-xs text-black uppercase bg-gray-50 dark:bg-white dark:text-gray-400">
+                        <tr>
+                            <th scope="col" class="px-4 py-3">Nombre</th>
+                            <th scope="col" class="px-4 py-3">Tipo de Medida</th>
+                            <th scope="col" class="px-4 py-3">Cantidad Mínima</th>
+                            <th scope="col" class="px-4 py-3">Proveedor</th>
+                            <th scope="col" class="px-4 py-3">Acciones</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr *ngFor="let materiaPrima of materiasPrimas" class="border-b dark:border-gray-700">
+                            <td class="px-4 py-3">{{ materiaPrima.nombre }}</td>
+                            <td class="px-4 py-3">{{ materiaPrima.tipoMedida }}</td>
+                            <td class="px-4 py-3">{{ materiaPrima.cantidadMinima }}</td>
+                            <td class="px-4 py-3">{{ getProveedorNombre(materiaPrima.idProveedor) }}</td>
+                            <td class="px-4 py-3 flex items-center">
+                                <!--<button type="button" class="text-gray-700 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-100"
+                                    (click)="editarMateriaPrima(materiaPrima)">
+                                    Editar
+                                </button>
+                                <button type="button" class="text-red-600 hover:text-red-700 ml-2 dark:text-red-400 dark:hover:text-red-200"
+                                    (click)="confirmarEliminacion(materiaPrima.id)">
+                                    Eliminar
+                                </button> -->
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</section>

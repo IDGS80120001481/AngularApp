@@ -1,0 +1,214 @@
+@import url('https://fonts.googleapis.com/css2?family=Arya&family=Open+Sans:wght@600&display=swap');
+
+* {
+  margin:0;
+  padding: 0;
+  box-sizing: border-box;
+  text-decoration: none;
+  font-family: 'Open Sans', sans-serif;
+}
+
+body {
+  width: 100%;
+  height: 100vh;
+  overflow-x: hidden;
+}
+
+main{
+  height: 100vh;
+}
+
+.container-login {
+  position: relative;
+  width: 100%;
+}
+
+
+.navigation-login {
+  position: fixed;
+  width: 300px;
+  height: 100%;
+  background: #638353;
+  border-left: 10px #638353;
+  transition: 0.5s;
+  overflow: auto;
+}
+.navigation-login.active {
+  width: 120px;
+}
+
+.navigation-login ul {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+}
+
+.navigation-login ul li {
+  position: relative;
+  width: 100%;
+  list-style: none;
+  border-top-left-radius: 30px;
+  border-bottom-left-radius: 30px;
+}
+
+.navigation-login ul li:hover,
+.navigation-login ul li.hovered {
+  background-color: #fff;
+}
+
+.navigation-login ul li:nth-child(1) {
+  margin-bottom: 40px;
+  pointer-events: none;
+}
+
+.navigation-login ul li a {
+  position: relative;
+  display: block;
+  width: 100%;
+  display: flex;
+  text-decoration: none;
+  color: #fff;
+}
+.navigation-login ul li:hover a,
+.navigation-login ul li.hovered a {
+  color: #638353;
+}
+
+.navigation-login ul li a .icon {
+  position: relative;
+  display: block;
+  min-width: 60px;
+  height: 60px;
+  line-height: 75px;
+  text-align: center;
+}
+.navigation-login ul li a .icon ion-icon {
+  font-size: 1.75rem;
+}
+
+.navigation-login ul li a .title {
+  position: relative;
+  display: block;
+  padding: 0 10px;
+  height: 60px;
+  line-height: 60px;
+  text-align: start;
+  white-space: nowrap;
+}
+
+
+.navigation-login ul li:hover a::before,
+.navigation-login ul li.hovered a::before {
+  content: "";
+  position: absolute;
+  right: 0;
+  top: -50px;
+  width: 50px;
+  height: 50px;
+  background-color: transparent;
+  border-radius: 50%;
+  box-shadow: 35px 35px 0 10px #fff;
+  pointer-events: none;
+}
+.navigation-login ul li:hover a::after,
+.navigation-login ul li.hovered a::after {
+  content: "";
+  position: absolute;
+  right: 0;
+  bottom: -50px;
+  width: 50px;
+  height: 50px;
+  background-color: transparent;
+  border-radius: 50%;
+  box-shadow: 35px -35px 0 10px #fff;
+  pointer-events: none;
+}
+
+
+.main {
+  position: absolute;
+  width: calc(100% - 300px);
+  left: 300px;
+  min-height: 100vh;
+  background: #8b0000b3;
+  transition: 0.5s;
+  color: #FFF;
+}
+.main.active {
+  width: calc(100% - 80px);
+  left: 80px;
+}
+
+.topbar {
+  width: 100%;
+  height: 60px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 10px;
+}
+
+.toggle {
+  position: relative;
+  width: 60px;
+  height: 60px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 2.5rem;
+  cursor: pointer;
+}
+
+.lignaris-title {
+  position: relative;
+  width: 400px;
+  margin: 0 10px;
+}
+
+.lignaris-title label {
+  position: relative;
+  width: 100%;
+}
+
+.lignaris-title label input {
+  width: 100%;
+  height: 40px;
+  border-radius: 40px;
+  padding: 5px 20px;
+  padding-left: 35px;
+  font-size: 18px;
+  outline: none;
+  border: 1px solid var(--black2);
+}
+
+.lignaris-title label ion-icon {
+  position: absolute;
+  top: 0;
+  left: 10px;
+  font-size: 1.2rem;
+}
+
+.user {
+  position: relative;
+  width: 90px;
+  height: 60px;
+  border-radius: 60%;
+  background-image: url('/lignaris-logo.jpg'); /* Ruta a tu imagen */
+  background-size: cover; /* Ajustar tamaño para cubrir todo el div */
+  background-position: center; /* Posición centrada de la imagen */
+  background-repeat: no-repeat;
+}
+
+.user img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.title{
+    text-align: center;
+}

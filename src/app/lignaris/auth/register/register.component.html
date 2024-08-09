@@ -1,0 +1,57 @@
+<section class="bg-gray-50 dark:bg-gray-900">
+    <div class="flex flex-col items-center justify-center px-12 py-8 mx-auto md:h-auto lg:py-0">
+        <div class="w-full bg-white rounded-lg shadow dark:border md:mt-0 sm:max-w-md xl:p-0 dark:bg-gray-800 dark:border-gray-700">
+            <div class="p-6 space-y-4 md:space-y-6 sm:p-8">
+                <h3 class="text-lg leading-tight tracking-tight text-black md:text-center dark:text-black">
+                    Crear cuenta
+                </h3>
+                <form 
+                    class="shadow-md rounded-md p-5 bg-white dark:bg-gray-800 w-full"
+                    [formGroup]="registerForm"
+                    (ngSubmit)="register()"
+                >
+                    <div class="grid gap-4 mb-4 sm:grid-cols-2 sm:gap-6 sm:mb-5">
+                        <div class="w-full">
+                            <label for="nombre" class="block mb-2 text-sm font-medium text-black dark:text-black">Nombre:</label>
+                            <input type="text" id="nombre" class="bg-white border border-gray-300 text-black text-sm rounded-lg focus:ring-green-500 focus:border-green-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-black dark:focus:ring-green-500 dark:focus:border-green-500" required formControlName="nombre">
+                        </div>
+                        <div class="w-full">
+                            <label for="apellidoPaterno" class="block mb-2 text-sm font-medium text-black dark:text-black">Apellido Paterno:</label>
+                            <input type="text" id="apellidoPaterno" class="bg-white border border-gray-300 text-black text-sm rounded-lg focus:ring-green-500 focus:border-green-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-black dark:focus:ring-green-500 dark:focus:border-green-500" required formControlName="apellidoPaterno">
+                        </div>
+                        <div class="w-full">
+                            <label for="apellidoMaterno" class="block mb-2 text-sm font-medium text-black dark:text-black">Apellido Materno:</label>
+                            <input type="text" id="apellidoMaterno" class="bg-white border border-gray-300 text-black text-sm rounded-lg focus:ring-green-500 focus:border-green-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-black dark:focus:ring-green-500 dark:focus:border-green-500" required formControlName="apellidoMaterno">
+                        </div>
+                        <div class="w-full">
+                            <label for="telefono" class="block mb-2 text-sm font-medium text-black dark:text-black">Teléfono:</label>
+                            <input type="text" id="telefono" class="bg-white border border-gray-300 text-black text-sm rounded-lg focus:ring-green-500 focus:border-green-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-black dark:focus:ring-green-500 dark:focus:border-green-500" required formControlName="telefono">
+                        </div>
+                        <div class="w-full">
+                            <label for="email" class="block mb-2 text-sm font-medium text-black dark:text-black">Email:</label>
+                            <input type="email" id="email" class="bg-white border border-gray-300 text-black text-sm rounded-lg focus:ring-green-500 focus:border-green-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-black dark:focus:ring-green-500 dark:focus:border-green-500" required formControlName="email">
+                        </div>
+                        <div class="w-full">
+                            <label for="password" class="block mb-2 text-sm font-medium text-black dark:text-black">Password:</label>
+                            <input type="password" id="password" class="bg-white border border-gray-300 text-black text-sm rounded-lg focus:ring-green-500 focus:border-green-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-black dark:focus:ring-green-500 dark:focus:border-green-500" required formControlName="password">
+                        </div>
+                    </div>
+                    <div class="w-full">
+                        <label for="direccion" class="block mb-2 text-sm font-medium text-black dark:text-black">Dirección:</label>
+                        <input type="text" id="direccion" class="bg-white border border-gray-300 text-black text-sm rounded-lg focus:ring-green-500 focus:border-green-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-black dark:focus:ring-green-500 dark:focus:border-green-500" required formControlName="direccion">
+                    </div>
+                    <div class="my-4">
+                        <span class="text-slate-600">Ya tienes una cuenta?</span>
+                        <a class="text-blue-600" [routerLink]="['/']">Login</a>
+                    </div>
+                    <button 
+                        type="submit" 
+                        class="w-full mt-4 border border-slate-200 rounded-md disabled:bg-gray-300 py-2 px-3 bg-green-600 text-white"
+                        [disabled]="!registerForm.valid">
+                        Registrar
+                    </button>
+                </form>
+            </div>
+        </div>
+    </div>
+</section>

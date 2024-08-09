@@ -1,0 +1,31 @@
+<section class="bg-white dark:bg-gray-900 p-6">
+  <div class="max-w-4xl mx-auto">
+    <div class="bg-white dark:bg-gray-800 shadow-md rounded-lg overflow-hidden">
+      <div class="bg-secondary text-white px-6 py-4">
+        <h2 class="text-lg font-bold">Inventario de Materias Primas</h2>
+      </div>
+      <div class="p-6 overflow-x-auto">
+        <table class="w-full text-sm text-left text-white dark:text-gray-400">
+          <thead class="text-xs text-black bg-gray-50 dark:bg-white dark:text-gray-400">
+            <tr>
+              <th scope="col" class="px-4 py-3">Nombre</th>
+              <th scope="col" class="px-4 py-3">Cantidad Disponible (GR o ML)</th>
+              <th scope="col" class="px-4 py-3">Fecha de Compra</th>
+              <th scope="col" class="px-4 py-3">Fecha de Caducidad</th>
+              <th scope="col" class="px-4 py-3">N° de Lote</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let inventario of listaInventario" class="bg-white dark:bg-gray-800 hover:bg-gray-50 dark:hover:bg-gray-700">
+              <td class="px-4 py-2 border-b text-gray-700 dark:text-gray-400">{{ inventario.nombre }}</td>
+              <!-- <td class="px-4 py-2 border-b text-gray-700 dark:text-gray-400">{{ inventario.cantidadDisponible }}</td> -->
+              <td scope="col" class="px-4 py-3">{{ inventario.fechaCompra | date }}</td>
+              <td scope="col" class="px-4 py-3">{{ inventario.fechaCaducidad | date }}</td>
+              <td scope="col" class="px-4 py-3">{{ inventario.numLote }}</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</section>

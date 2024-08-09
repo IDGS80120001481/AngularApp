@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Liganris.</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="author" content="Lignaris Team">
+        <meta name="description" content="Pizzeria Gourmet Lignaris.">
+</head>
+    <body>
+        <div class="container-login">
+            <div class="navigation-login">
+                <ul>
+                    <li >
+                        <a href="#">
+                            <span class="icon">
+                                <fa-icon [icon]="faUser"></fa-icon>
+                            </span>
+                            <span class="title">{{ usuario?.fullName }}</span>
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="/dashboard/module">
+                            <span class="icon">
+                                <fa-icon [icon]="faChartLine"></fa-icon>
+                            </span>
+                            <span class="title">Dashboard</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="/user/menu">
+                            <span class="icon">
+                                <fa-icon [icon]="faUserGear"></fa-icon>
+                            </span>
+                            <span class="title">Empleados</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a class="nav-link active" aria-current="page" [routerLink]="'/admin/supplier'">
+                            <span class="icon">
+                                <fa-icon [icon]="faTruckField"></fa-icon>
+                            </span>
+                            <span class="title">Proveedores</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a class="nav-link active" aria-current="page" [routerLink]="'/admin/raw-material'">
+                            <span class="icon">
+                                <fa-icon [icon]="faEgg"></fa-icon>
+                            </span>
+                            <span class="title">Materia Prima</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a class="nav-link active" aria-current="page" [routerLink]="'/admin/recipe'">
+                            <span class="icon">
+                                <fa-icon [icon]="faReceipt"></fa-icon>
+                            </span>
+                            <span class="title">Recetas</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a class="nav-link active" aria-current="page" [routerLink]="'/admin/shopping'">
+                            <span class="icon">
+                                <fa-icon [icon]="faBagShopping"></fa-icon>
+                            </span>
+                            <span class="title">Compras</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a class="nav-link active" aria-current="page" [routerLink]="'/admin/inventory'">
+                            <span class="icon">
+                                <fa-icon [icon]="faTruckRampBox"></fa-icon>
+                            </span>
+                            <span class="title">Inventario</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="/production/menu">
+                            <span class="icon">
+                                <fa-icon [icon]="faFireBurner"></fa-icon>
+                            </span>
+                            <span class="title">Producción</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a class="nav-link active" aria-current="page" [routerLink]="'/admin/sale-cart'">
+                            <span class="icon">
+                                <fa-icon [icon]="faPizzaSlice"></fa-icon>
+                            </span>
+                            <span class="title">Venta</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a class="nav-link active" aria-current="page" [routerLink]="'/admin/shopping-cart'">
+                            <span class="icon">
+                                <fa-icon [icon]="faCartShopping"></fa-icon>
+                            </span>
+                            <span class="title">Carrito</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="/logout">
+                            <span class="icon">
+                                <fa-icon [icon]="faLeftLong"></fa-icon>
+                            </span>
+                            <span class="title">Salir</span>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+
+            <div class="main">
+                <div class="topbar">
+                    <div class="toggle">
+                        <fa-icon [icon]="faUtensils"></fa-icon>
+                    </div>
+
+                    <div class="lignaris-title">
+                        <label>
+                            <p class="title">Lignaris Pizzeria</p>
+                            <p class="title">"Donde cada rebanada es una obra de arte."</p>
+                        </label>
+                    </div>
+                    <div class="user">
+
+                    </div>
+                </div>
+                <main style="background-color: #f1efe6; height: 100%;">
+                    <br>
+                    <router-outlet></router-outlet>    
+                </main>
+                </div>
+            </div>
+    </body>
+</html>

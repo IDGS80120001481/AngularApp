@@ -1,0 +1,50 @@
+<div class="body-login h-screen flex items-center justify-center">
+    <form 
+    class="shadow-md rounded-md p-5 bg-white w-1/4"
+    [formGroup]="form"
+    (ngSubmit)="login()"
+    >
+        <h2>Login</h2>
+        <div class="div-circular">
+            <div class="text-center circular-div">
+                <img src="../Capricciosa.jpg" alt="Imagen Inicio Sesion" />
+            </div>
+        </div>
+        <br>
+        <mat-form-field appearance="fill" class="w-full">
+            <mat-label>Email</mat-label>
+            <input matInput placeholder="Email" formControlName="email" />
+            <mat-icon matPrefix>email</mat-icon>
+        </mat-form-field>
+
+        <mat-form-field appearance="fill" class="w-full">
+            <mat-label>Password</mat-label>
+            <input
+              matInput
+              type="{{ hide ? 'password' : 'text' }}"
+              formControlName="password"
+              placeholder="Password"
+            />
+            <mat-icon matPrefix>lock</mat-icon>
+            <mat-icon (click)="hide = !hide" matSuffix>{{
+              hide ? "visibility_off" : "visibility"
+            }}</mat-icon>
+        </mat-form-field>
+
+        <button
+        type="submit"
+        [disabled]="!form.valid"
+        class="w-full mt-4 border border-slate-200 rounded-md disabled:bg-green-300 py-2 px-3 bg-green-900 text-white font-bold"
+        >
+            Login
+        </button>
+
+        <a class="nav-link active" aria-current="page" [routerLink]="'/auth/register'" title="" class="inline-flex items-center gap-2 text-sm font-medium text-primary-700 underline hover:no-underline dark:text-primary-500">
+            Registrar usuario
+            <svg class="h-5 w-5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+              <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 12H5m14 0-4 4m4-4-4-4" />
+            </svg>
+          </a>
+    </form>
+</div>
+    

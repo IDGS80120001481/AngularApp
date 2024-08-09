@@ -1,0 +1,39 @@
+.form-card {
+    max-width: 600px;
+    margin: auto;
+}
+
+.table thead th, .table tbody td {
+    text-align: center;
+}
+
+.btn {
+    margin-right: 10px;
+    margin-left: 5px;
+}
+
+.btn:last-child {
+    margin-right: 0;
+}
+
+/* Estilo para el input de imagen */
+#foto {
+    border: 2px solid #d3d3d3; /* Color gris claro */
+    border-radius: 5px;
+    padding: 5px;
+    background-color: #f8f8f8;
+    cursor: pointer;
+}
+
+#foto:focus {
+    border-color: #007bff; /* Cambiar el borde al hacer foco */
+}
+
+/* Estilo para la imagen seleccionada */
+.img-thumbnail {
+    max-width: 30%;
+    height: auto;
+    border: 2px solid #d3d3d3; /* Borde gris claro */
+    border-radius: 5px;
+    background-color: #f8f8f8;
+}
